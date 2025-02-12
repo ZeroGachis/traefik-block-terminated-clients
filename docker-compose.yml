@@ -1,0 +1,8 @@
+services:
+  plugin:
+    build:
+      context: .
+    tty: true
+    working_dir: /go/src/github.com/ZeroGachis/traefik-block-terminated-clients
+    volumes:
+      - .:/go/src/github.com/ZeroGachis/traefik-block-terminated-clients

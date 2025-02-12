@@ -1,0 +1,12 @@
+displayName: SW Block terminated clients
+type: middleware
+import: github.com/ZeroGachis/traefik-block-terminated-clients
+
+summary: 'Traefik plugin to block HTTP requests from terminated clients'
+
+iconPath: .assets/icon.png
+
+testData:
+  Username:
+    - "client1"
+    - "client2"
