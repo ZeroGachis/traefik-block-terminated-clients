@@ -3,12 +3,12 @@ package traefik_block_terminated_clients
 
 import (
 	"context"
-	"fmt"
 	"net/http"
+	"strings"
 )
 
 type Config struct {
-	Username []string `json:"username,omitempty"`
+	Usernames string `json:"username,omitempty"`
 }
 
 func CreateConfig() *Config {
@@ -23,8 +23,8 @@ type Plugin struct {
 
 func New(_ context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
 	usernames := make(map[string]bool)
-	fmt.Println("Blocklist: ", config.Username) //nolint
-	for _, username := range config.Username {
+
+	for _, username := range strings.Split(config.Usernames, ",") {
 		usernames[username] = true
 	}
 

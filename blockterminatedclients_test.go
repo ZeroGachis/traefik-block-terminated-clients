@@ -9,7 +9,7 @@ import (
 
 func TestFowardRequestIfNoUsernameQueryParamExists(t *testing.T) {
 	cfg := CreateConfig()
-	cfg.Username = []string{"client1", "client2"}
+	cfg.Usernames = "client1,client2"
 
 	ctx := context.Background()
 	next := http.HandlerFunc(func(rw http.ResponseWriter, _ *http.Request) {
@@ -37,7 +37,7 @@ func TestFowardRequestIfNoUsernameQueryParamExists(t *testing.T) {
 
 func TestFowardRequestIfUsernameIsNotBlocked(t *testing.T) {
 	cfg := CreateConfig()
-	cfg.Username = []string{"client1", "client2"}
+	cfg.Usernames = "client1,client2"
 
 	ctx := context.Background()
 	next := http.HandlerFunc(func(rw http.ResponseWriter, _ *http.Request) {
@@ -65,7 +65,7 @@ func TestFowardRequestIfUsernameIsNotBlocked(t *testing.T) {
 
 func TestBlockRequestIfUsernameIsBlocked(t *testing.T) {
 	cfg := CreateConfig()
-	cfg.Username = []string{"client1", "client2"}
+	cfg.Usernames = "client1,client2"
 
 	ctx := context.Background()
 	next := http.HandlerFunc(func(rw http.ResponseWriter, _ *http.Request) {
