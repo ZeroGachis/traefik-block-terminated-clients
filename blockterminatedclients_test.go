@@ -86,7 +86,7 @@ func TestBlockRequestIfUsernameIsBlocked(t *testing.T) {
 
 	handler.ServeHTTP(recorder, req)
 
-	if recorder.Result().StatusCode != http.StatusUnauthorized {
+	if recorder.Result().StatusCode != http.StatusNoContent {
 		t.Errorf("Got status code %d", recorder.Code)
 	}
 }

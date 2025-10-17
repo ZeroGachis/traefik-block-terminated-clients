@@ -39,7 +39,7 @@ func (a *Plugin) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	username := req.URL.Query().Get("username")
 	_, usernameIsBlocked := a.usernames[username]
 	if username != "" && usernameIsBlocked {
-		rw.WriteHeader(http.StatusUnauthorized)
+		rw.WriteHeader(http.StatusNoContent)
 
 		return
 	}
