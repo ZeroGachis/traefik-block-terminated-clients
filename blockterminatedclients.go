@@ -37,6 +37,7 @@ func New(_ context.Context, next http.Handler, config *Config, name string) (htt
 
 func (a *Plugin) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	username := req.URL.Query().Get("username")
+
 	_, usernameIsBlocked := a.usernames[username]
 	if username != "" && usernameIsBlocked {
 		rw.WriteHeader(http.StatusNoContent)
