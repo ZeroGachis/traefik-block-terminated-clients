@@ -1,6 +1,6 @@
 [tools]
-go = "1.23"
-golangci-lint = "v1.64.2"
+go = "1.25"
+golangci-lint = "2.5"
 
 
 [tasks.install_yaegi]
